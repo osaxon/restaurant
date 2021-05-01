@@ -14,7 +14,6 @@
       src="https://kit.fontawesome.com/9fb910411d.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="/Assets/style.css" />
     <title>El Saxo's Restarante</title>
   </head>
   <body>
@@ -30,7 +29,7 @@
         <div class="mb-3">
           
           <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" id="name" class="form-label">Name</label>
             <input
               type="text"
               class="form-control"
@@ -46,23 +45,50 @@
             id="email"
             aria-describedby="emailHelp"
           />
-          <div id="emailHelp" class="form-text">
+          <div id="emailHelp" id="email" class="form-text">
             We'll never share your email with anyone else.
           </div>
         </div>
         <div class="mb-3">
-          <label for="phone-number" class="form-label">Phone number</label>
+          <label for="phone-number" id="phone" class="form-label">Phone number</label>
           <input
             type="text"
             class="form-control"
             id="phone-number"
           />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
 
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $("#submit").on("click", () => {
+        console.log("submit")
+        let newRes = [{
+            customerName: "oli",
+            phone: "938393",
+            email: "email",
+        }]
+        console.log(newRes)
+
+        fetch(`/api/tables/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newRes),
+        })
+        .then((res) => response.json())
+        .then((data) => {
+            console.log("adding reservation")
+        })
+        .catch((err) => {
+            console.log(err)
+        });
+    });
+
+    </script>
   </body>
 </html>
