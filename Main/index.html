@@ -13,8 +13,6 @@
 
     <header>
         <h1><i class="fas fa-pepper-hot"></i> El Saxo's Fonda</h1>
-        <a href="/reserve">Make Reservation</a>
-        <a href="/tables">View Tables</a>
     </header>
 
     <div class="container">
@@ -23,12 +21,20 @@
 
             <div class="card-body">
               <p class="card-text">We only have 5 tables! Book your seat before they all are gone!</p>
+              <a href="/reserve">Make Reservation</a>
+              <a href="/tables">View Tables</a>
             </div>
           </div>
 
-
-
+          <footer>
+              <a href="/api/tables" id="table-api">API Table Link</a>
+          </footer>
     </div>
     
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        const tableAPIBtn = $("#table-api");
+        tableAPIBtn.on("click", () => console.log("hello"))
+    </script>
 </body>
 </html>
