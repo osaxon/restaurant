@@ -48,8 +48,8 @@
           type: "GET",
           url: "/api/table_count",
           success: function (data) {
-            console.log(data);
-          },
+            $('#tblCount').text(`Hurry, there's only ${data} tables left!`);
+          }
         });
       });
 
